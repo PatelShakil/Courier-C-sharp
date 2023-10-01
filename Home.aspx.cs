@@ -35,9 +35,9 @@ public partial class Home : System.Web.UI.Page
         SqlDataReader reader = cmd.ExecuteReader();
         if (reader.HasRows)
         {
-if(reader.Read()){
+                if(reader.Read()){
             username.Text = "Login as " + reader["email"].ToString(); 
-    Load_Data();
+            Load_Data();
 
         }
         }
@@ -50,7 +50,7 @@ if(reader.Read()){
     }
     protected void Load_Data()
     {
-  // Assuming con is your SqlConnection
+            // Assuming con is your SqlConnection
             if (con.State == ConnectionState.Open)
             {
                 con.Close();
