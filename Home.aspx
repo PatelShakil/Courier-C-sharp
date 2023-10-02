@@ -13,7 +13,7 @@
     
     <div class="container mt-5 text-center">
         <h2 class="text-center">Courier Services Providers</h2>
-                <asp:Label ID="username" runat="server" Width="100%"></asp:Label>
+              <asp:Label ID="username" runat="server" Width="100%"></asp:Label>
 <h2 style="width:100%;text-align:center;padding:20px;"><a href="Login.aspx"><asp:Label runat="server" ID="errorText"></asp:Label></a></h2>
         <div class="row">
             <asp:Repeater ID="rptServices" runat="server" ViewStateMode="Enabled">
@@ -24,8 +24,9 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("name") %></h5>
                                 <p class="card-text"><%# Eval("description") %></p>
-                <asp:HyperLink runat="server" NavigateUrl='<%# Eval("id", "~/Details.aspx?ID={0}") %>' Text="View Details" CssClass="btn btn-primary" />
-                            </div>
+   <asp:Button runat="server" ID="btnViewDetails" Text="View Details" CssClass="btn btn-primary"
+                    OnClick="btnViewDetails_Click" CommandArgument='<%# Eval("id") + ";" %>' />
+                                        </div>
                         </div>
                     </div>
                 </ItemTemplate>

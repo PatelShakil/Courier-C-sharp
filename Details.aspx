@@ -9,6 +9,7 @@
     <!-- Add any additional CSS styles for page layout here -->
 </head>
 <body>
+    <form runat="server">
     <div class="container mt-5">
         <div class="row mt-5">
             <div class="col-md-6">
@@ -18,6 +19,7 @@
                 <h2><asp:Label ID="lblName" runat="server" CssClass="text-primary"></asp:Label></h2>
                 <p><asp:Label ID="lblDescription" runat="server"></asp:Label></p>
                 <p><strong>Cost:</strong> <asp:Label ID="lblCost" runat="server"></asp:Label></p>
+                <asp:Button CssClass="btn btn-primary" runat="server" ID="FeedBackBtn" OnClick="OnFeedBackClick" Text="Submit FeedBack"/>
             </div> 
                 <h2 style="width:100%; text-align:center;padding-top:20px">Why Us</h2>
 
@@ -26,5 +28,6 @@
         </div>
         <div style="height: 450px;"></div>
     </div>
+        </form>
 </body>
 </html>

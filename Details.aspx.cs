@@ -7,7 +7,8 @@ public partial class Details : System.Web.UI.Page
 {
     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=G:\Visual Studio Projects\Courier C-sharp\App_Data\courier.mdf;Integrated Security=True");
     int providerId = 0;
-    protected void Page_Load(object sender, EventArgs e)
+        String email = "";
+protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
@@ -26,7 +27,6 @@ public partial class Details : System.Web.UI.Page
             }
         }
     }
-
     private void LoadProviderDetails(int providerID)
     {
         con.Open();
@@ -42,7 +42,6 @@ public partial class Details : System.Web.UI.Page
             lblCost.Text = Convert.ToDecimal(reader["cost"]).ToString("C");
             imgProvider.ImageUrl = reader["image"].ToString();
             string originalText = reader["whyus"].ToString();
-
             string modifiedText = Regex.Replace(originalText, @"\d+", match => "<br><br>" + match.Value);
             whyus.Text = modifiedText;
 
@@ -56,5 +55,10 @@ public partial class Details : System.Web.UI.Page
 
         reader.Close();
         con.Close();
+    }
+
+    protected void OnFeedBackClick(Object sender, EventArgs e)
+    {
+        Response.Redirect("Feedback.aspx?" + "ID=" + Request.QueryString["ID"].ToString() + "&email=" + Request.QueryString["email"]);
     }
 }

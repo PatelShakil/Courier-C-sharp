@@ -12,7 +12,6 @@ public partial class Home : System.Web.UI.Page
 {
     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=G:\Visual Studio Projects\Courier C-sharp\App_Data\courier.mdf;Integrated Security=True");
 
-
     protected void Page_Load(object sender, EventArgs e)
     {  
         if (!IsPostBack)
@@ -28,7 +27,7 @@ public partial class Home : System.Web.UI.Page
 
     }
 
-    protected void Load_User_Data(String email)
+    public void Load_User_Data(String email)
     {
         con.Open();
         SqlCommand cmd = new SqlCommand("Select * from users where email like '" + email + "'",con);
@@ -66,4 +65,23 @@ public partial class Home : System.Web.UI.Page
             reader.Close();
             con.Close();
     }
+    protected void btnViewDetails_Click(object sender, EventArgs e)
+{
+    Button btn = (Button)sender;
+    string commandArgument = btn.CommandArgument;
+    
+    if (!string.IsNullOrEmpty(commandArgument))
+    {
+        string[] arguments = commandArgument.Split(';');
+        if (arguments.Length == 2)
+        {
+            string itemID = arguments[0];
+            
+            // Redirect to Details.aspx with parameters
+            Response.Redirect(string.Format("Details.aspx?ID={0}&email={1}", itemID, Request.QueryString["email"].ToString()));
+
+        }
+    }
+}
+
 }
