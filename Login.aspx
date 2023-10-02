@@ -33,7 +33,7 @@
             <div style="height: 40px;"></div>
             </div> 
                     <asp:Button runat="server" class="btn btn-primary " OnClick="OnLoginClick" Text="Login" />
-                    <div style="height: 200px;"></div>
+                    <div style="height: 470px;"></div>
 
                    <p>Click here for <a href="http://localhost:26050/Registration.aspx">Registration</a></p>
 

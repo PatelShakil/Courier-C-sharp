@@ -47,7 +47,7 @@
     </div>
     
           <asp:Button runat="server" class="btn btn-primary" OnClick="OnRegistrationClick" Text="Register" />
-        <div style="height: 200px;"></div>
+        <div style="height: 400px;"></div>
 
                    <p>Click here for <a href="http://localhost:26050/Login.aspx">Login</a></p>
     </div>
